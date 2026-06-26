@@ -1,0 +1,21 @@
+Nombre de la base de datos:
+VIDEOJUEGOS_DB
+
+Tablas:
+plataformas
+- id
+- fabricante Sony
+- nombre
+- año
+
+generos
+- id
+- genero
+
+videojuegos
+- id
+- titulo
+- caratula
+- año
+- (genero)
+- (plataforma)
