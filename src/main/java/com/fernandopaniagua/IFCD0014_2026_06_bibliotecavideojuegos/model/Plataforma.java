@@ -1,17 +1,29 @@
 package com.fernandopaniagua.IFCD0014_2026_06_bibliotecavideojuegos.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 
 @Entity
+@Table(name = "t_plataforma")
 public class Plataforma {
     @Id
+    @GeneratedValue(strategy=GenerationType.IDENTITY)
     private long id;
+
+    @Column(name = "empresa", nullable = false)
     private String fabricante;
+
+    @Column(nullable = false)
     private String nombre;
+
     private int anyo;
 
-    public Plataforma() {
+    public Plataforma(){
+    }
+
+    public Plataforma(String fabricante, String nombre, int anyo) {
+        this.fabricante = fabricante;
+        this.nombre = nombre;
+        this.anyo = anyo;
     }
 
     public long getId() {
