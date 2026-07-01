@@ -10,5 +10,4 @@ public class MainController {
     public String getMainPage(Model model){
         return "index";
     }
-
 }
