@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Biblioteca de Videojuegos</title>
-    <link rel="stylesheet" href="/plataforma.css">
+    <link rel="stylesheet" href="./plataforma.css">
 </head>
 <body>
 
@@ -13,7 +13,7 @@
     <header class="cabecera">
 
         <div class="cabecera-logo">
-            <img src="/logo.png" alt="Logo Biblioteca de Videojuegos" class="logo">
+            <img src="./logo.png" alt="Logo Biblioteca de Videojuegos" class="logo">
 
             <div>
                 <h1>Biblioteca de Videojuegos</h1>
@@ -36,12 +36,12 @@
 
         <section class="menu">
 
-            <a href="/plataformas/nueva" class="tarjeta">
+            <a th:href="@{./plataforma/nueva}" class="tarjeta">
                 <h3>Nueva plataforma</h3>
                 <p>Registrar una nueva consola o sistema.</p>
             </a>
 
-            <a href="/plataformas" class="tarjeta">
+            <a th:href="@{./plataforma/lista}" class="tarjeta">
                 <h3>Listado de plataformas</h3>
                 <p>Consultar, editar o eliminar plataformas.</p>
             </a>

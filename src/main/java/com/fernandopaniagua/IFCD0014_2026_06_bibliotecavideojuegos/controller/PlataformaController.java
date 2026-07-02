@@ -38,7 +38,8 @@ public class PlataformaController {
             Model model) {
         Plataforma plataforma = new Plataforma(fabricante, nombre, anyo);
         this.plataformaService.create(plataforma);
-        return "crear-plataforma";
+        model.addAttribute("plataformas", this.plataformaService.findAll());
+        return "listado-plataformas";
     }
 
     @PostMapping("/plataforma/guardarcompleta")

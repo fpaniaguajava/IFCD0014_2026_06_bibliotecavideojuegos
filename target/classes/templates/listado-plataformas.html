@@ -4,14 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Listado de Plataformas</title>
-    <link rel="stylesheet" href="/plataforma.css">
+    <link rel="stylesheet" href="../plataforma.css">
 </head>
 <body>
 
 <div class="contenedor inicio">
     <header class="cabecera">
         <div class="cabecera-logo">
-            <img src="/logo.png" alt="Logo Biblioteca" class="logo">
+            <img src="../logo.png" alt="Logo Biblioteca" class="logo">
             <div>
                 <h1>Biblioteca de Videojuegos</h1>
                 <p>Listado de plataformas</p>
@@ -21,7 +21,7 @@
     <main class="contenido">
         <div class="barra-superior">
             <h2>Plataformas registradas</h2>
-            <a href="alta-plataforma.html" class="btn-principal enlace-boton">
+            <a th:href="@{/plataforma/nueva}" class="btn-principal enlace-boton">
                 Nueva plataforma
             </a>
         </div>
