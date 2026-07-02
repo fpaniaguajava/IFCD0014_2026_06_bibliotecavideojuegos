@@ -32,6 +32,6 @@ public class PlataformaServiceImpl implements IPlataformaService{
 
     @Override
     public List<Plataforma> findAll() {
-        return List.of();
+        return this.repo.findAll();
     }
 }

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="es">
+<html xmlns:th="http://www.thymeleaf.org" lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,32 +9,23 @@
 <body>
 
 <div class="contenedor inicio">
-
     <header class="cabecera">
-
         <div class="cabecera-logo">
             <img src="/logo.png" alt="Logo Biblioteca" class="logo">
-
             <div>
                 <h1>Biblioteca de Videojuegos</h1>
                 <p>Listado de plataformas</p>
             </div>
         </div>
-
     </header>
-
     <main class="contenido">
-
         <div class="barra-superior">
             <h2>Plataformas registradas</h2>
-
             <a href="alta-plataforma.html" class="btn-principal enlace-boton">
                 Nueva plataforma
             </a>
         </div>
-
         <table class="tabla">
-
             <thead>
             <tr>
                 <th>ID</th>
@@ -44,75 +35,23 @@
                 <th>Acciones</th>
             </tr>
             </thead>
-
             <tbody>
-
-            <tr>
-                <td>1</td>
-                <td>Nintendo</td>
-                <td>Nintendo Switch</td>
-                <td>2017</td>
+            <tr th:each="plataforma : ${plataformas}">
+                <td th:text="${plataforma.id}"></td>
+                <td th:text="${plataforma.fabricante}"></td>
+                <td th:text="${plataforma.nombre}"></td>
+                <td th:text="${plataforma.anyo}"></td>
                 <td class="acciones">
                     <a href="#" class="btn-editar">Editar</a>
                     <a href="#" class="btn-eliminar">Eliminar</a>
                 </td>
             </tr>
-
-            <tr>
-                <td>2</td>
-                <td>Sony</td>
-                <td>PlayStation 5</td>
-                <td>2020</td>
-                <td class="acciones">
-                    <a href="#" class="btn-editar">Editar</a>
-                    <a href="#" class="btn-eliminar">Eliminar</a>
-                </td>
-            </tr>
-
-            <tr>
-                <td>3</td>
-                <td>Microsoft</td>
-                <td>Xbox Series X</td>
-                <td>2020</td>
-                <td class="acciones">
-                    <a href="#" class="btn-editar">Editar</a>
-                    <a href="#" class="btn-eliminar">Eliminar</a>
-                </td>
-            </tr>
-
-            <tr>
-                <td>4</td>
-                <td>Sega</td>
-                <td>Dreamcast</td>
-                <td>1998</td>
-                <td class="acciones">
-                    <a href="#" class="btn-editar">Editar</a>
-                    <a href="#" class="btn-eliminar">Eliminar</a>
-                </td>
-            </tr>
-
-            <tr>
-                <td>5</td>
-                <td>Atari</td>
-                <td>Atari 2600</td>
-                <td>1977</td>
-                <td class="acciones">
-                    <a href="#" class="btn-editar">Editar</a>
-                    <a href="#" class="btn-eliminar">Eliminar</a>
-                </td>
-            </tr>
-
             </tbody>
-
         </table>
-
     </main>
-
     <footer class="pie">
         Biblioteca de Videojuegos · IFCD0014 · 2026
     </footer>
-
 </div>
-
 </body>
 </html>
