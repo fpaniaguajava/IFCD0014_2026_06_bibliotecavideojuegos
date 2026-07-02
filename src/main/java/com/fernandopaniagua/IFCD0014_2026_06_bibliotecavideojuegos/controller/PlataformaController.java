@@ -26,7 +26,7 @@ public class PlataformaController {
         return "listado-plataformas";
     }
 
-    @PostMapping("/plataformas/guardar")
+    @PostMapping("/plataforma/guardar")
     public String guardarPlataforma(
             @RequestParam String fabricante,
             @RequestParam String nombre,
@@ -34,6 +34,6 @@ public class PlataformaController {
             Model model) {
         Plataforma plataforma = new Plataforma(fabricante, nombre, anyo);
         this.plataformaService.create(plataforma);
-        return "index";
+        return "crear-plataforma";
     }
 }
