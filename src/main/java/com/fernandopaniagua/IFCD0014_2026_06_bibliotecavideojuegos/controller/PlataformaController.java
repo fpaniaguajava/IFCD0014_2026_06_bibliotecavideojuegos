@@ -4,33 +4,31 @@ import com.fernandopaniagua.IFCD0014_2026_06_bibliotecavideojuegos.model.Platafo
 import com.fernandopaniagua.IFCD0014_2026_06_bibliotecavideojuegos.service.IPlataformaService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @Controller
+@RequestMapping("/plataforma")
 public class PlataformaController {
     private IPlataformaService plataformaService;
     public PlataformaController(IPlataformaService plataformaService){
         this.plataformaService = plataformaService;
     }
 
-    @GetMapping("/plataforma/nueva")
+    @GetMapping("/nueva")
     public String crearPlataforma(Model model) {
         return "crear-plataforma";
     }
 
-    @GetMapping("/plataforma/lista")
+    @GetMapping("/lista")
     public String mostrarPlataformas(Model model) {
         List<Plataforma> plataformas = this.plataformaService.findAll();
         model.addAttribute("plataformas", plataformas);
         return "listado-plataformas";
     }
 
-    @PostMapping("/plataforma/guardar")
+    @PostMapping("/guardar")
     public String guardarPlataforma(
             @RequestParam String fabricante,
             @RequestParam String nombre,
@@ -42,7 +40,7 @@ public class PlataformaController {
         return "listado-plataformas";
     }
 
-    @PostMapping("/plataforma/guardarcompleta")
+    @PostMapping("/guardarcompleta")
     public String guardarPlataformaCompleta(
             @ModelAttribute Plataforma plataforma,
             Model model) {
