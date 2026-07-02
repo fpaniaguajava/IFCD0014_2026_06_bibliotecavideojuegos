@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="es">
+<html xmlns:th="http://www.thymeleaf.org" lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -15,7 +15,7 @@
         <p>Alta de Plataforma</p>
     </div>
 
-    <form action="/plataformas/guardar" method="post">
+    <form th:action="@{/plataformas/guardar}" method="post">
 
         <div class="grupo">
             <label for="fabricante">Fabricante</label>
