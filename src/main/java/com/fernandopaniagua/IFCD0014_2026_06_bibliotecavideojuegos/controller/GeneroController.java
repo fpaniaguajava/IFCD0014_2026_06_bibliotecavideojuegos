@@ -26,7 +26,9 @@ public class GeneroController {
     @PostMapping("/guardar")
     public String guardarGenero(@ModelAttribute Genero genero, Model model){
         this.generoService.create(genero);
-        return "index";
+        List<Genero> generos = this.generoService.findAll();
+        model.addAttribute("generos", generos);
+        return "listado-generos";
     }
 
     @GetMapping("/lista")

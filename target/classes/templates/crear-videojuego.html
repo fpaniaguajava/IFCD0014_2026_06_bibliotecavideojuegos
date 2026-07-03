@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alta de Videojuego</title>
+    <link rel="stylesheet" href="../plataforma.css">
+</head>
+<body>
+
+<div class="contenedor">
+
+    <div class="cabecera">
+        <h1>Biblioteca de Videojuegos</h1>
+        <p>Alta de Videojuego</p>
+    </div>
+
+    <form th:action="@{/videojuego/guardar}" method="post">
+
+        <div class="grupo">
+            <label for="titulo">Título del videojuego</label>
+            <input
+                    type="text"
+                    id="titulo"
+                    name="titulo"
+                    placeholder="Ej.: The Legend of Zelda"
+                    required>
+        </div>
+
+        <div class="grupo">
+            <label for="plataforma">Plataforma</label>
+            <select
+                    id="plataforma"
+                    name="plataforma.id"
+                    required>
+                <option value="">Selecciona una plataforma</option>
+                <option th:each="plataforma : ${plataformas}" 
+                        th:value="${plataforma.id}" 
+                        th:text="${plataforma.nombre}"></option>
+            </select>
+        </div>
+
+        <div class="grupo">
+            <label for="genero">Género</label>
+            <select
+                    id="genero"
+                    name="genero.id"
+                    required>
+                <option value="">Selecciona un género</option>
+                <option th:each="genero : ${generos}" 
+                        th:value="${genero.id}" 
+                        th:text="${genero.nombre}"></option>
+            </select>
+        </div>
+
+        <div class="grupo">
+            <label for="calificacion">Calificación</label>
+            <input
+                    type="number"
+                    id="calificacion"
+                    name="calificacion"
+                    min="0"
+                    max="10"
+                    step="0.1"
+                    placeholder="Ej.: 8.5">
+        </div>
+
+        <div class="grupo">
+            <label for="urlImagen">URL de la imagen</label>
+            <input
+                    type="url"
+                    id="urlImagen"
+                    name="urlImagen"
+                    placeholder="Ej.: https://ejemplo.com/imagen.jpg">
+        </div>
+
+        <div class="grupo checkbox">
+            <label for="favorito">
+                <input
+                        type="checkbox"
+                        id="favorito"
+                        name="favorito">
+                Marcar como favorito
+            </label>
+        </div>
+
+        <div class="botones">
+            <button type="submit" class="btn-principal">
+                Guardar videojuego
+            </button>
+
+            <button type="reset" class="btn-secundario">
+                Limpiar
+            </button>
+
+            <a th:href="@{/}" class="btn-secundario">
+                Volver
+            </a>
+        </div>
+
+    </form>
+
+</div>
+
+</body>
+</html>

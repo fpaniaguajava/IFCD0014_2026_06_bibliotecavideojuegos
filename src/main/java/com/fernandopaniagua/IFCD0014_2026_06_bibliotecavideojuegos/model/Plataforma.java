@@ -2,6 +2,8 @@ package com.fernandopaniagua.IFCD0014_2026_06_bibliotecavideojuegos.model;
 
 import jakarta.persistence.*;
 
+import java.util.List;
+
 @Entity
 @Table(name = "t_plataforma")
 public class Plataforma {
