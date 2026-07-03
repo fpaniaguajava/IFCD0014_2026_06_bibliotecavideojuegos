@@ -8,18 +8,14 @@ import lombok.Setter;
 
 @NoArgsConstructor
 @AllArgsConstructor
+@Getter
+@Setter
 @Entity
 @Table(name = "t_genero")
 public class Genero {
     @Id
     @GeneratedValue(strategy= GenerationType.IDENTITY)
-    @Getter
-    @Setter
     Long id;
-    @Getter
-    @Setter
     String nombre;
-    @Getter
-    @Setter
     String descripcion;
 }

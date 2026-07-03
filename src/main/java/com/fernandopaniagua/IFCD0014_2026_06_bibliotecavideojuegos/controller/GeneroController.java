@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @RequestMapping("/genero")
 public class GeneroController {
     @GetMapping("/nuevo")
-    public String crearPlataforma(Model model) {
+    public String crearGenero(Model model) {
         return "crear-genero";
     }
 }

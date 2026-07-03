@@ -1,6 +1,5 @@
 package com.fernandopaniagua.IFCD0014_2026_06_bibliotecavideojuegos;
 
-import com.fernandopaniagua.IFCD0014_2026_06_bibliotecavideojuegos.model.Plataforma;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
@@ -9,9 +8,6 @@ public class Ifcd0014202606BibliotecavideojuegosApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(Ifcd0014202606BibliotecavideojuegosApplication.class, args);
-
-
-
 	}
 
 }
