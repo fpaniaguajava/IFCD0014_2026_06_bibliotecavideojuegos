@@ -7,4 +7,5 @@ import java.util.List;
 public interface IGeneroService {
     public void create(Genero genero);
     public List<Genero> findAll();
+    public void delete(Long id);
 }

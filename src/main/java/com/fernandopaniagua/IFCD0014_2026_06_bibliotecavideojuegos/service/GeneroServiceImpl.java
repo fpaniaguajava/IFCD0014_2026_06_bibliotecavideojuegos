@@ -22,4 +22,9 @@ public class GeneroServiceImpl implements IGeneroService{
     public List<Genero> findAll() {
         return this.generoRepo.findAll();
     }
+
+    @Override
+    public void delete(Long id) {
+        this.generoRepo.deleteById(id);
+    }
 }

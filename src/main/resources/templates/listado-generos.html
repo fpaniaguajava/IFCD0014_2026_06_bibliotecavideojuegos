@@ -44,7 +44,7 @@
                 <td th:text="${genero.descripcion}"></td>
                 <td class="acciones">
                     <a href="#" class="btn-editar">Editar</a>
-                    <a href="#" class="btn-eliminar">Eliminar</a>
+                    <a th:href="@{/genero/borrar(id=${genero.id})}" class="btn-eliminar">Eliminar</a>
                 </td>
             </tr>
             </tbody>

@@ -37,4 +37,12 @@ public class GeneroController {
         model.addAttribute("generos", generos);
         return "listado-generos";
     }
+
+    @GetMapping("/borrar")
+    public String borrarGenero(@RequestParam Long id, Model model){
+        this.generoService.delete(id);
+        List<Genero> generos = this.generoService.findAll();
+        model.addAttribute("generos", generos);
+        return "listado-generos";
+    }
 }

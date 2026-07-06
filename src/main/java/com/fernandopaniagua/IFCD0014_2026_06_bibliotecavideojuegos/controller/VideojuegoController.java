@@ -12,6 +12,8 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import java.util.List;
+
 @Controller
 @RequestMapping("/videojuego")
 public class VideojuegoController {
@@ -36,10 +38,18 @@ public class VideojuegoController {
         return "crear-videojuego";
     }
 
+    @GetMapping("/lista")
+    public String mostrarVideojuegos(Model model) {
+        List<Videojuego> videojuegos = this.videojuegoService.findAll();
+        model.addAttribute("videojuegos", videojuegos);
+        return "listado-videojuegos";
+    }
+
     @PostMapping("/guardar")
     public String guardarVideojuego(@ModelAttribute Videojuego videojuego, Model model) {
         this.videojuegoService.create(videojuego);
-
-        return "crear-videojuego";
+        List<Videojuego> videojuegos = this.videojuegoService.findAll();
+        model.addAttribute("videojuegos", videojuegos);
+        return "listado-videojuegos";
     }
 }

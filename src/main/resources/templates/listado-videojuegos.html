@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Listado de Géneros</title>
+    <title>Listado de Videojuegos</title>
     <link rel="stylesheet" href="../plataforma.css">
 </head>
 <body>
@@ -14,37 +14,48 @@
             <img src="../logo.png" alt="Logo Biblioteca" class="logo">
             <div>
                 <h1>Biblioteca de Videojuegos</h1>
-                <p>Listado de géneros</p>
+                <p>Listado de videojuegos</p>
             </div>
         </div>
     </header>
     <main class="contenido">
         <div class="barra-superior">
-            <h2>Géneros registrados</h2>
+            <h2>Videojuegos registradas</h2>
             <a th:href="@{/}" class="btn-principal enlace-boton">
                 Home
             </a>
-            <a th:href="@{/genero/nuevo}" class="btn-principal enlace-boton">
-                Nuevo género
+            <a th:href="@{/videojuego/nuevo}" class="btn-principal enlace-boton">
+                Nuevo videojuego
             </a>
         </div>
         <table class="tabla">
             <thead>
             <tr>
                 <th>ID</th>
-                <th>Nombre</th>
-                <th>Descripción</th>
+                <th>Título</th>
+                <th>Rating</th>
+                <th>Favorito</th>
+                <th>Imagen</th>
+                <th>Género</th>
+                <th>Plataforma</th>
                 <th>Acciones</th>
             </tr>
             </thead>
             <tbody>
-            <tr th:each="genero : ${generos}">
-                <td th:text="${genero.id}"></td>
-                <td th:text="${genero.nombre}"></td>
-                <td th:text="${genero.descripcion}"></td>
+            <tr th:each="videojuego : ${videojuegos}">
+                <td th:text="${videojuego.id}"></td>
+                <td th:text="${videojuego.titulo}"></td>
+                <td th:text="${videojuego.calificacion}"></td>
+                <td>
+                    <img th:if="${videojuego.favorito}" src="../heart.png" width="40px">
+                    <img th:unless="${videojuego.favorito}" src="../noheart.png" width="40px">
+                </td>
+                <td><img th:src="${videojuego.urlImagen}" width="50px"></td>
+                <td th:text="${videojuego.genero.nombre}"></td>
+                <td th:text="${videojuego.plataforma.nombre}"></td>
                 <td class="acciones">
                     <a href="#" class="btn-editar">Editar</a>
-                    <a th:href="@{/genero/borrar(id=${genero.id})}" class="btn-eliminar">Eliminar</a>
+                    <a href="#" class="btn-eliminar">Eliminar</a>
                 </td>
             </tr>
             </tbody>
