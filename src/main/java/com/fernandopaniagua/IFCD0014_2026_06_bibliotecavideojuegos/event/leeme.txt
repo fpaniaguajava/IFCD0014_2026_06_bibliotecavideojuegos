@@ -1,0 +1,10 @@
+- La clase EventoLog representa el evento.
+
+- La clase EventPublisher es la intermediaria
+en la emisión de los eventos.
+
+- La clase Plataforma controller es la emisora
+de los eventos de tipo EventLog.
+
+- La clase IFCD0014LoggerImpl está suscrita
+a los eventos de tipo EventLog.

@@ -4,7 +4,7 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class 	Ifcd0014202606BibliotecavideojuegosApplication {
+public class Ifcd0014202606BibliotecavideojuegosApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(Ifcd0014202606BibliotecavideojuegosApplication.class, args);

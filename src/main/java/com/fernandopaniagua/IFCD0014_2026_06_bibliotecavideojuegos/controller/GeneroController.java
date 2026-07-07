@@ -1,7 +1,7 @@
 package com.fernandopaniagua.IFCD0014_2026_06_bibliotecavideojuegos.controller;
 
+import com.fernandopaniagua.IFCD0014_2026_06_bibliotecavideojuegos.component.ILogger;
 import com.fernandopaniagua.IFCD0014_2026_06_bibliotecavideojuegos.model.Genero;
-import com.fernandopaniagua.IFCD0014_2026_06_bibliotecavideojuegos.repository.IGeneroRepo;
 import com.fernandopaniagua.IFCD0014_2026_06_bibliotecavideojuegos.service.IGeneroService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -13,9 +13,11 @@ import java.util.List;
 @RequestMapping("/genero")
 public class GeneroController {
     private IGeneroService generoService;
+    private ILogger miLogger;
 
-    public GeneroController(IGeneroService generoService) {
+    public GeneroController(IGeneroService generoService, ILogger miLogger) {
         this.generoService = generoService;
+        this.miLogger = miLogger;
     }
 
     @GetMapping("/nuevo")
@@ -33,6 +35,7 @@ public class GeneroController {
 
     @GetMapping("/lista")
     public String mostrarGenero(Model model){
+        miLogger.writeLog("mostrarGenero");
         List<Genero> generos = this.generoService.findAll();
         model.addAttribute("generos", generos);
         return "listado-generos";

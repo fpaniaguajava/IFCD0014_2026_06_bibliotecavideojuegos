@@ -1,5 +1,6 @@
 package com.fernandopaniagua.IFCD0014_2026_06_bibliotecavideojuegos.controller;
 
+import com.fernandopaniagua.IFCD0014_2026_06_bibliotecavideojuegos.event.EventPublisher;
 import com.fernandopaniagua.IFCD0014_2026_06_bibliotecavideojuegos.model.Plataforma;
 import com.fernandopaniagua.IFCD0014_2026_06_bibliotecavideojuegos.service.IPlataformaService;
 import org.springframework.stereotype.Controller;
@@ -12,8 +13,11 @@ import java.util.List;
 @RequestMapping("/plataforma")
 public class PlataformaController {
     private IPlataformaService plataformaService;
-    public PlataformaController(IPlataformaService plataformaService){
+    private EventPublisher publicadorDeEventos;
+    public PlataformaController(IPlataformaService plataformaService,
+                                EventPublisher publicadorDeEventos) {
         this.plataformaService = plataformaService;
+        this.publicadorDeEventos = publicadorDeEventos;
     }
 
     @GetMapping("/nueva")
@@ -23,6 +27,7 @@ public class PlataformaController {
 
     @GetMapping("/lista")
     public String mostrarPlataformas(Model model) {
+        this.publicadorDeEventos.publicarEvento("Se han leído todas las plataformas");
         List<Plataforma> plataformas = this.plataformaService.findAll();
         model.addAttribute("plataformas", plataformas);
         return "listado-plataformas";
